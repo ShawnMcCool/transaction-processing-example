@@ -13,3 +13,5 @@ It codes up fast and easy and once it's written it's written and you don't have 
 Mostly the SQL queries end up simple because we're just storing objects in the database people. We don't have a bunch of crazy ORM relationships to implement. It's an object that contains other objects. We store the Transaction into a repository. NOTICE THAT THERE IS NOT A CAPTURE REPOSITORY. Despite the queries USUALLY being incredibly simple.. They don't have to be. They can be whatever you want.
 
 > Does some of this feel like boiler-plate? Guess what. Those are the MOST important parts of the application. Those are the places where the mappings bring great flexibility and opportunity. Those are not to be traded away because we don't want to spend 20 minutes writing the code. If you want to use a query-builder, fine. So long as your tool doesn't impact the design of your actual objects.
+>
+> I personally find SQL to be an amazing high-level interface and I don't know why we try to avoid it so much...
