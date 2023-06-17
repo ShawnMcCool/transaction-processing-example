@@ -12,6 +12,16 @@ It codes up fast and easy and once it's written it's written and you don't have 
 
 Mostly the SQL queries end up simple because we're just storing objects in the database people. We don't have a bunch of crazy ORM relationships to implement. It's an object that contains other objects. We store the Transaction into a repository. NOTICE THAT THERE IS NOT A CAPTURE REPOSITORY. Despite the queries USUALLY being incredibly simple.. They don't have to be. They can be whatever you want.
 
-> Does some of this feel like boiler-plate? Guess what. Those are the MOST important parts of the application. Those are the places where the mappings bring great flexibility and opportunity. Those are not to be traded away because we don't want to spend 20 minutes writing the code. If you want to use a query-builder, fine. So long as your tool doesn't impact the design of your actual objects.
->
-> I personally find SQL to be an amazing high-level interface and I don't know why we try to avoid it so much...
+## Isn't this boiler-plate?
+
+Does some of this feel like boiler-plate? Guess what. Those are the MOST important parts of the application. Those are the places where the mappings bring great flexibility and opportunity. Those are not to be traded away because we don't want to spend 20 minutes writing the code. If you want to use a query-builder, fine. So long as your tool doesn't impact the design of your actual objects.
+
+I personally find SQL to be an amazing high-level interface and I don't know why we try to avoid it so much...
+
+When we make compromises to avoid the "tedium" of mapping. Not only is the code generally impacted by our persistence tooling. But we lose mapping.
+
+## Mappings are Boundaries
+
+When we map from one thing to another, that becomes an articulation point that allows EACH side of the mapping to change independently.
+
+Independent evolution is the property of our systems that we are MISSING. This is why our applications get locked into stasis and new features / feature modifications get increasingly more expensive. Ask yourself.. why shouldn't adding behavior to a system be FASTER because the system has more capabilities? Why is it always slower? It's because we've coupled everything to everything and now it must all evolve in lock-step. It's a fundamental failing of software design.
