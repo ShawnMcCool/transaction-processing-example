@@ -28,3 +28,18 @@ Independent evolution is the property of our systems that we are MISSING. This i
 
 > These boundaries ARE the key to evolvable software, yet we outsource the mappings to monolithic general purpose tools that handle the complexity by completely ignoring it.
 
+## But how do I handle all of my "relationships"?
+
+Relationships are the result of a clearly flawed data-model-first paradigm of software design.
+
+Design objects that serve a purpose, in this example it's Transaction. Transactions have multiple Captures. This would normally be communicated in active record by having a Transaction entity with a "has many" relationship to Capture entities. There's no reason for captures to be able to save themselves. They're a part of the Transaction model. That's why Transaction has a repository and Capture doesn't.
+
+Because you can't save captures independently, you are prevented from violating the rules within Transaction.
+
+Relationships were never a good idea.
+
+## Data Access Between Contexts
+
+Instead, create individual "contexts" like TransactionProcessing in your applications. Define the models needed for those. Then create OTHER contexts to serve OTHER concerns. Do you need state from the TransactionProcessing? Listen to the events and construct local state from that. Does this seem wasteful? Maybe the code that you're writing is TransactionProcessing code then? Or... maybe you actually have a lot to benefit from the fact that these entirely different contexts communicate only over a defined event / interface contract and are now able to evolve independently of one another..
+
+> This solves the only REAL problem that we have.. the same real problem that we create over and over again.. systems that are so highly coupled that they become expensive or impossible to change.
