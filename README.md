@@ -25,3 +25,5 @@ When we make compromises to avoid the "tedium" of mapping. Not only is the code 
 When we map from one thing to another, that becomes an articulation point that allows EACH side of the mapping to change independently.
 
 Independent evolution is the property of our systems that we are MISSING. This is why our applications get locked into stasis and new features / feature modifications get increasingly more expensive. Ask yourself.. why shouldn't adding behavior to a system be FASTER because the system has more capabilities? Why is it always slower? It's because we've coupled everything to everything and now it must all evolve in lock-step. It's a fundamental failing of software design.
+
+These boundaries ARE the key to evolvable software, yet we outsource the mappings to monolithic general purpose tools that handle the complexity by completely ignoring it.
